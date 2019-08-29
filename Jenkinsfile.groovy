@@ -1,6 +1,6 @@
 node{
     stage("Update jenkins"){
-        properties([parameters([string(defaultValue: '34.247.186.1662', description: 'Please provide IP', name: 'ENVIR', trim: true)])])
+        properties([parameters([string(defaultValue: '34.247.186.166', description: 'Please provide IP', name: 'ENVIR', trim: true)])])
         sh "echo Parameter added"
     }
     stage("Install git"){
@@ -15,9 +15,9 @@ node{
         sh "echo Hello"
     }
     stage("Pip Install"){
-        sh "ssh  ec2-user@${ENVIR} pip install -r ~/flask-examples/requirements.txt"
+        sh "ssh  ec2-user@${ENVIR} pip install -r /home/ec2-user/flask-examples/requirements.txt"
     }
     stage("Run App"){
-        sh "ssh  ec2-user@${ENVIR}  python ~/flask-examples/01-hello-world/hello.py"
+        sh "ssh  ec2-user@${ENVIR}  python /home/ec2-user/flask-examples/01-hello-world/hello.py"
     }
 }
