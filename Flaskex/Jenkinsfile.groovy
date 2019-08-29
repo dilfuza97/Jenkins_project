@@ -7,10 +7,10 @@ node{
         sh "ssh  ec2-user@${ENVIR} sudo yum install git python-pip -y"
     }
     stage("Remove repo"){
-        //sh "ssh  ec2-user@${ENVIR} sudo  rm -rf /home/ec2-user/flask-examples"
+        sh "ssh  ec2-user@${ENVIR} sudo  rm -rf /home/ec2-user/Flaskex"
     }
     stage("Pull Repo"){
-        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/dilfuza97/Flaskex.git"
+        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/dilfuza97/Flaskex.gi"
     }
     stage("Install Requirements"){
         //sh "virtualenv /tmp/venv"
@@ -21,6 +21,6 @@ node{
         sh "ssh  ec2-user@${ENVIR} sudo pip install -r /home/ec2-user/Flaskex/requirements.txt"
     }
     stage("Run App"){
-        sh "ssh  ec2-user@${ENVIR}  python /home/ec2-user/Flaskex/01-hello-world/hello.py"
+        sh "ssh  ec2-user@${ENVIR}  python /home/ec2-user/Flaskex/app.py"
     }
 }
