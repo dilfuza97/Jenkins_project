@@ -14,7 +14,7 @@ node{
         }
     }
     stage("Pull Repo"){
-        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/dilfuza97/stormpath-flask-sample.git 2. /dev/null"
+        sh "ssh  ec2-user@${ENVIR} git clone https://github.com/dilfuza97/stormpath-flask-sample.git"
     }
     stage("Install Requirements"){
         sh "echo Hello"
